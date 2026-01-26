@@ -26,7 +26,7 @@
 ## 📋 Table of Contents
 
 ### 📚 Learning Path
-- [📖 Module 1: Getting Started](#-module-1-getting-started)
+- [📖 Module 1: Getting Started](00-getting-started/README.md)
 - [🎯 Module 2: Functions & Scope](#-module-2-functions--scope)
 - [🏗️ Module 3: Objects & Arrays](#️-module-3-objects--arrays)
 - [🌐 Module 4: DOM & Events](#-module-4-dom--events)
