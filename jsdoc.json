@@ -1,0 +1,37 @@
+{
+  "tags": {
+    "allowUnknownTags": false
+  },
+  "source": {
+    "include": ["src", "README.md"],
+    "includePattern": ".+\\.(js|ts)$",
+    "excludePattern": "(node_modules|dist|build|coverage|__tests__)"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true,
+      "includeDate": false
+    },
+    "systemName": "JavaScript Mastery",
+    "footer": "",
+    "copyright": "Copyright © 2024 JavaScript Mastery. All Rights Reserved.",
+    "navType": "vertical",
+    "theme": "cosmo",
+    "linenums": true,
+    "collapseSymbols": false,
+    "inverseNav": true
+  },
+  "opts": {
+    "destination": "./docs/",
+    "encoding": "utf8",
+    "private": true,
+    "recurse": true,
+    "template": "./node_modules/docdash",
+    "readme": "README.md"
+  }
+}
