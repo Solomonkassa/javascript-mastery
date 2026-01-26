@@ -1,0 +1,17 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🚀 Running pre-commit hooks..."
+
+# Run lint-staged
+npx lint-staged
+
+# Run security audit
+echo "🔒 Running security audit..."
+npm audit --audit-level=moderate || {
+  echo "⚠️  Security vulnerabilities found!"
+  echo "Run 'npm audit fix' to fix automatically fixable issues"
+  exit 1
+}
+
+echo "✅ Pre-commit checks passed!"
