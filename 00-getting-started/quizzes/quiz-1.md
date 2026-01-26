@@ -1,17 +1,4 @@
-# 📝 Quiz 1: JavaScript Fundamentals & Syntax
 
-**Course:** JavaScript Mastery Path  
-**Module:** 00 - Getting Started  
-**Quiz ID:** `JS-00-Q1`  
-**Version:** 2.1.0  
-**Created:** October 2023  
-**Updated:** January 2024  
-**Author:** JavaScript Education Team  
-**Time Limit:** 30 minutes  
-**Total Points:** 100  
-**Passing Score:** 70%  
-
----
 
 ## 📋 Quiz Information
 
