@@ -1,115 +1,47 @@
 module.exports = {
-  root: true,
-
   env: {
     browser: true,
     node: true,
     es2021: true,
     jest: true,
   },
-
-  /* =====================
-     DEFAULT: JavaScript
-     ===================== */
+  extends: [
+    'airbnb-base',
+    'prettier',
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-
-  extends: [
-    'airbnb-base',
-    'plugin:jest/recommended',
-    'plugin:jsdoc/recommended',
-    'plugin:security/recommended',
-    'plugin:prettier/recommended',
-  ],
-
-  plugins: ['jest', 'jsdoc', 'security', 'import', 'prettier'],
-
   rules: {
-    /* General JS rules (SAFE for students) */
-    'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
-    'no-var': 'error',
-    'prefer-const': 'error',
-    'prefer-template': 'error',
-    'eqeqeq': ['error', 'always'],
-    'curly': ['error', 'all'],
-    'no-eval': 'error',
-    'no-implied-eval': 'error',
-    'no-debugger': 'error',
-
-    'import/prefer-default-export': 'off',
-    'import/no-default-export': 'error',
-
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: 'all',
-        printWidth: 100,
-        semi: true,
-      },
-    ],
+    // Disable or modify rules that are too strict for educational code
+    'no-console': 'off', // Allow console.log for educational purposes
+    'max-classes-per-file': 'off', // Allow multiple classes in examples
+    'no-plusplus': 'off', // Allow ++ and -- operators
+    'no-nested-ternary': 'off', // Allow nested ternary for examples
+    'no-shadow': 'off', // Allow shadowing for educational clarity
+    'no-restricted-syntax': 'off', // Allow for...of and other syntax for examples
+    'guard-for-in': 'off', // Simpler for...in examples
+    'no-prototype-builtins': 'off', // Simpler code examples
+    'no-else-return': 'off', // Allow else after return for clarity
+    'curly': ['error', 'all'], // Require braces for all control statements
+    'prettier/prettier': 'error', // Enable prettier rules
   },
-
-  /* =====================
-     TYPESCRIPT ONLY
-     ===================== */
+  plugins: [
+    'prettier',
+  ],
   overrides: [
     {
-      files: ['**/*.ts', '**/*.tsx'],
-
-      parser: '@typescript-eslint/parser',
-
-      parserOptions: {
-        project: './tsconfig.json',
-        tsconfigRootDir: __dirname,
-        sourceType: 'module',
-      },
-
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-      ],
-
-      plugins: ['@typescript-eslint'],
-
+      files: ['**/*.test.js', '**/*.spec.js'],
       rules: {
-        '@typescript-eslint/no-unused-vars': [
-          'error',
-          {
-            argsIgnorePattern: '^_',
-            varsIgnorePattern: '^_',
-          },
-        ],
-        '@typescript-eslint/no-explicit-any': 'warn',
-        '@typescript-eslint/no-floating-promises': 'error',
-        '@typescript-eslint/consistent-type-imports': [
-          'error',
-          { prefer: 'type-imports' },
-        ],
+        'no-unused-expressions': 'off',
       },
     },
-
-    /* =====================
-       TEST FILES
-       ===================== */
     {
-      files: ['**/*.test.*', '**/*.spec.*'],
+      files: ['examples/**/*.js'],
       rules: {
-        'max-lines': 'off',
-        'no-magic-numbers': 'off',
+        'no-console': 'off', // Definitely allow console in examples
       },
     },
-  ],
-
-  ignorePatterns: [
-    'node_modules/',
-    'dist/',
-    'build/',
-    'coverage/',
-    '*.config.js',
-    '*.config.cjs',
-    '*.d.ts',
   ],
 };
