@@ -16,6 +16,18 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
+    # Generate lock file first if missing
+    - name: Check for package-lock.json
+      id: lockfile-check
+      run: |
+        if [ -f "package-lock.json" ] || [ -f "npm-shrinkwrap.json" ]; then
+          echo "lockfile-exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "Generating package-lock.json..."
+          npm install --package-lock-only --no-audit
+          echo "lockfile-exists=false" >> $GITHUB_OUTPUT
+        fi
+    
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
@@ -23,7 +35,12 @@ jobs:
         cache: 'npm'
     
     - name: Install dependencies
-      run: npm ci
+      run: |
+        if [ -f "package-lock.json" ] || [ -f "npm-shrinkwrap.json" ]; then
+          npm ci
+        else
+          npm install
+        fi
       
     - name: Lint
       run: npm run lint
@@ -58,9 +75,10 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18.x'
+        # No cache needed for deploy
         
     - name: Install dependencies
-      run: npm ci
+      run: npm install
       
     - name: Build
       run: npm run build
