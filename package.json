@@ -12,8 +12,8 @@
     "start": "node src/index.js",
     "dev": "NODE_ENV=development nodemon src/index.js",
     "build": "NODE_ENV=production npm run type-check && npm run lint && npm run test",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix --ignore-path .gitignore",
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore",
+    "lint:fix": "ESLINT_USE_FLAT_CONFIG=false eslint . --ext .js,.jsx,.ts,.tsx --fix --ignore-path .gitignore",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,html,css}\" --ignore-path .gitignore",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,html,css}\" --ignore-path .gitignore",
     "test": "NODE_ENV=test jest --coverage --verbose",
@@ -40,22 +40,22 @@
     "projects"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "your.email@example.com",
-    "url": "https://yourwebsite.com"
+    "name": "jedancodeacademy-bit",
+    "email": "support@jedancodeacademy.com",
+    "url": "https://jedancodeacademy.com"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/javascript-mastery.git"
+    "url": "https://github.com/jedancodeacademy-bit/javascript-mastery.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/javascript-mastery/issues"
+    "url": "https://github.com/jedancodeacademy-bit/javascript-mastery/issues"
   },
-  "homepage": "https://github.com/yourusername/javascript-mastery#readme",
+  "homepage": "https://github.com/jedancodeacademy-bit/javascript-mastery#readme",
   "funding": {
     "type": "individual",
-    "url": "https://github.com/sponsors/yourusername"
+    "url": "https://github.com/sponsors/jedancodeacademy-bit"
   },
   "files": [
     "src",
@@ -164,7 +164,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
+      "ESLINT_USE_FLAT_CONFIG=false eslint --fix",
       "prettier --write"
     ],
     "**/*.{json,md,html,css}": [
