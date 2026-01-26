@@ -11,29 +11,41 @@
 
 **From Zero to Production-Ready JavaScript Developer**
 
-[![CI/CD](https://github.com/jedancodeacademy-bit/javascript-mastery/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/javascript-mastery/actions/workflows/ci.yml)
-[![Code Coverage](https://codecov.io/gh/jedancodeacademy-bit/javascript-mastery/branch/main/graph/badge.svg)](https://codecov.io/gh/yourusername/javascript-mastery)
-[![Security Scan](https://github.com/jedancodeacademy-bit/javascript-mastery/actions/workflows/security.yml/badge.svg)](https://github.com/yourusername/javascript-mastery/actions/workflows/security.yml)
+[![CI/CD](https://github.com/jedancodeacademy-bit/javascript-mastery/actions/workflows/ci.yml/badge.svg)](https://github.com/jedancodeacademy-bit/javascript-mastery/actions/workflows/ci.yml)
+[![Code Coverage](https://codecov.io/gh/jedancodeacademy-bit/javascript-mastery/branch/main/graph/badge.svg)](https://codecov.io/gh/jedancodeacademy-bit/javascript-mastery)
+[![Security Scan](https://github.com/jedancodeacademy-bit/javascript-mastery/actions/workflows/security.yml/badge.svg)](https://github.com/jedancodeacademy-bit/javascript-mastery/actions/workflows/security.yml)
 [![Documentation](https://img.shields.io/badge/docs-latest-blue)](https://jedancodeacademy-bit.github.io/javascript-mastery/)
 
-[Getting Started](#-getting-started) •
-[Learning Path](#-learning-path) •
-[Projects](#-projects) •
+[Quick Start](#-quick-start) •
+[Learning Modules](#-learning-modules) •
+[Projects](#-project-showcase) •
 [Contributing](#-contributing)
 
 </div>
 
 ## 📋 Table of Contents
 
-- [✨ Features](#-features)
-- [🚀 Getting Started](#-getting-started)
-- [📚 Learning Path](#-learning-path)
-- [🏗️ Architecture](#️-architecture)
-- [🔧 Development Setup](#-development-setup)
-- [📦 Projects Portfolio](#-projects-portfolio)
+### 📚 Learning Path
+- [📖 Module 1: Getting Started](#-module-1-getting-started)
+- [🎯 Module 2: Functions & Scope](#-module-2-functions--scope)
+- [🏗️ Module 3: Objects & Arrays](#️-module-3-objects--arrays)
+- [🌐 Module 4: DOM & Events](#-module-4-dom--events)
+- [⚡ Module 5: Asynchronous JavaScript](#-module-5-asynchronous-javascript)
+- [🚀 Module 6: Modern JavaScript](#-module-6-modern-javascript)
+- [🎨 Module 7: Design Patterns](#-module-7-design-patterns)
+- [🧪 Module 8: Testing & Debugging](#-module-8-testing--debugging)
+- [🛠️ Module 9: Tools & Workflow](#️-module-9-tools--workflow)
+- [💼 Module 10: Interview Preparation](#-module-10-interview-preparation)
+
+### 🔧 Development
+- [🚀 Quick Start](#-quick-start)
+- [🏗️ Project Structure](#️-project-structure)
+- [⚙️ Development Setup](#️-development-setup)
 - [🧪 Testing & Quality](#-testing--quality)
-- [🛡️ Security](#️-security)
-- [📈 Performance](#-performance)
+
+### 📦 Resources
+- [🎯 Project Showcase](#-project-showcase)
+- [📚 Additional Resources](#-additional-resources)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
 - [🌟 Support](#-support)
@@ -68,7 +80,7 @@
 - **Performance profiling** guides
 - **Optimization techniques** for production
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 
@@ -77,7 +89,7 @@
 - **Git** 2.30+
 - **VS Code** (Recommended) or any modern editor
 
-### Quick Start
+### Installation
 
 ```bash
 # Clone the repository
@@ -108,9 +120,9 @@ docker build -t javascript-mastery .
 docker run -p 3000:3000 javascript-mastery
 ```
 
-## 📚 Learning Path
+## 📚 Learning Modules
 
-### 📖 **Module 1: JavaScript Fundamentals** *(Week 1-2)*
+### 📖 **Module 1: Getting Started** *(Week 1-2)*
 ```javascript
 // Example: Modern JavaScript Syntax
 const user = {
@@ -129,15 +141,22 @@ const { name, ...rest } = user;
 const updatedUser = { ...user, location: 'San Francisco' };
 ```
 
-**Topics Covered:**
-- Variables & Data Types
-- Operators & Expressions
-- Control Flow & Loops
-- Functions & Scope
-- Arrays & Objects
-- ES6+ Features
+**Directory:** [`00-getting-started/`](00-getting-started/)
+- **📁 fundamentals/** - Variables, Operators, Control Flow
+- **📁 exercises/** - Basic calculator, Temperature converter
+- **📁 quizzes/** - Assessment tests
 
-### 🎯 **Module 2: Advanced Concepts** *(Week 3-4)*
+**Topics Covered:**
+- ✅ Variables & Data Types
+- ✅ Operators & Expressions  
+- ✅ Control Flow & Loops
+- ✅ Functions & Scope
+- ✅ Arrays & Objects
+- ✅ ES6+ Features
+
+---
+
+### 🎯 **Module 2: Functions & Scope** *(Week 3-4)*
 ```javascript
 // Async/Await with Error Handling
 async function fetchUserData(userId) {
@@ -152,22 +171,55 @@ async function fetchUserData(userId) {
     return { success: false, error: error.message };
   }
 }
-
-// Promise Patterns
-const [user, posts] = await Promise.all([
-  fetchUserData(1),
-  fetchUserPosts(1)
-]);
 ```
 
-**Topics Covered:**
-- Promises & Async/Await
-- Error Handling Strategies
-- Design Patterns
-- Memory Management
-- Performance Optimization
+**Directory:** [`01-functions-scope/`](01-functions-scope/)
+- **📁 functions/** - Declarations, Expressions, Arrow Functions
+- **📁 scope-closures/** - Scope chains, Closure patterns
+- **📁 higher-order/** - Map, Filter, Reduce, Composition
+- **📁 projects/** - Advanced calculator, Todo app
 
-### 🌐 **Module 3: Browser & DOM** *(Week 5-6)*
+**Topics Covered:**
+- ✅ Function declarations vs expressions
+- ✅ Arrow functions and `this` binding
+- ✅ Scope, closures, and IIFE
+- ✅ Higher-order functions
+- ✅ Callback patterns
+
+---
+
+### 🏗️ **Module 3: Objects & Arrays** *(Week 5-6)*
+```javascript
+// Modern Array Methods
+const users = [
+  { id: 1, name: 'Alice', age: 25 },
+  { id: 2, name: 'Bob', age: 30 },
+  { id: 3, name: 'Charlie', age: 35 }
+];
+
+// Chaining array methods
+const activeUsers = users
+  .filter(user => user.age >= 25)
+  .map(user => ({ ...user, status: 'active' }))
+  .reduce((acc, user) => ({ ...acc, [user.id]: user }), {});
+```
+
+**Directory:** [`02-objects-arrays/`](02-objects-arrays/)
+- **📁 objects/** - Object creation, Methods, Prototypes
+- **📁 arrays/** - Array methods, Transformations
+- **📁 es6-features/** - Destructuring, Spread, Optional chaining
+- **📁 projects/** - Shopping cart, Student manager
+
+**Topics Covered:**
+- ✅ Object creation patterns
+- ✅ Prototypes and inheritance
+- ✅ Array methods (map, filter, reduce)
+- ✅ ES6+ destructuring
+- ✅ Spread/Rest operators
+
+---
+
+### 🌐 **Module 4: DOM & Events** *(Week 7-8)*
 ```javascript
 // Modern DOM Manipulation
 class TodoApp {
@@ -195,383 +247,347 @@ class TodoApp {
 }
 ```
 
-### 🗄️ **Module 4: Node.js & Backend** *(Week 7-8)*
+**Directory:** [`03-dom-events/`](03-dom-events/)
+- **📁 dom-manipulation/** - Selectors, Traversal, Creation
+- **📁 event-handling/** - Listeners, Delegation, Custom events
+- **📁 forms-validation/** - Form handling, Validation patterns
+- **📁 projects/** - Todo App, Contact Form
+
+**Topics Covered:**
+- ✅ DOM selection and traversal
+- ✅ Event handling and delegation
+- ✅ Form validation
+- ✅ Local Storage
+- ✅ Dynamic content updates
+
+---
+
+### ⚡ **Module 5: Asynchronous JavaScript** *(Week 9-10)*
 ```javascript
-// Express.js API Server
-import express from 'express';
-import helmet from 'helmet';
-import rateLimit from 'express-rate-limit';
-
-const app = express();
-
-// Security middleware
-app.use(helmet());
-app.use(express.json());
-app.use(rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100 // limit each IP to 100 requests per windowMs
-}));
-
-// RESTful API
-app.get('/api/users', async (req, res) => {
-  try {
-    const users = await User.find();
-    res.json({ success: true, data: users });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
+// Promise Patterns
+const fetchWithRetry = async (url, retries = 3) => {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response.json();
+    } catch (error) {
+      if (i === retries - 1) throw error;
+      await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
+    }
   }
+};
+
+// Parallel execution
+const loadData = async () => {
+  const [users, posts, comments] = await Promise.all([
+    fetch('/api/users'),
+    fetch('/api/posts'),
+    fetch('/api/comments')
+  ]);
+  return { users, posts, comments };
+};
+```
+
+**Directory:** [`04-asynchronous-js/`](04-asynchronous-js/)
+- **📁 callbacks/** - Callback patterns, Error-first callbacks
+- **📁 promises/** - Promise creation, Chaining, Methods
+- **📁 async-await/** - Async/await patterns, Error handling
+- **📁 api-integration/** - Fetch API, Axios, REST clients
+- **📁 projects/** - Weather App, GitHub Finder
+
+**Topics Covered:**
+- ✅ Callbacks and callback hell
+- ✅ Promises and promise chains
+- ✅ Async/await patterns
+- ✅ Error handling strategies
+- ✅ API integration
+
+---
+
+### 🚀 **Module 6: Modern JavaScript** *(Week 11-12)*
+```javascript
+// ES6 Modules
+import { User, Admin } from './models/user.js';
+import api from './utils/api.js';
+
+// Classes with private fields
+class BankAccount {
+  #balance = 0; // Private field
+  
+  constructor(owner, initialBalance = 0) {
+    this.owner = owner;
+    this.#balance = initialBalance;
+  }
+  
+  deposit(amount) {
+    if (amount <= 0) throw new Error('Deposit must be positive');
+    this.#balance += amount;
+    return this.#balance;
+  }
+  
+  get balance() {
+    return this.#balance;
+  }
+}
+```
+
+**Directory:** [`05-modern-javascript/`](05-modern-javascript/)
+- **📁 modules/** - ES6 Modules, Module bundlers
+- **📁 classes-oop/** - Classes, Inheritance, Private fields
+- **📁 data-structures/** - Maps, Sets, WeakMaps, Typed arrays
+- **📁 iterators-generators/** - Iterators, Generators, Async generators
+
+**Topics Covered:**
+- ✅ ES6+ module system
+- ✅ Classes and OOP in JavaScript
+- ✅ Modern data structures
+- ✅ Iterators and generators
+- ✅ Private class fields
+
+---
+
+### 🎨 **Module 7: Design Patterns** *(Week 13-14)*
+```javascript
+// Module Pattern
+const ShoppingCart = (() => {
+  let items = [];
+  let total = 0;
+  
+  const calculateTotal = () => {
+    total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  };
+  
+  return {
+    addItem(product, quantity = 1) {
+      items.push({ ...product, quantity });
+      calculateTotal();
+    },
+    
+    removeItem(productId) {
+      items = items.filter(item => item.id !== productId);
+      calculateTotal();
+    },
+    
+    getTotal() {
+      return total;
+    },
+    
+    getItems() {
+      return [...items]; // Return copy
+    }
+  };
+})();
+```
+
+**Directory:** [`06-design-patterns/`](06-design-patterns/)
+- **📁 creational/** - Singleton, Factory, Builder
+- **📁 structural/** - Module, Decorator, Facade
+- **📁 behavioral/** - Observer, Strategy, Command
+- **📁 error-handling/** - Try/catch, Custom errors, Error boundaries
+
+**Topics Covered:**
+- ✅ Creational design patterns
+- ✅ Structural design patterns
+- ✅ Behavioral design patterns
+- ✅ Error handling strategies
+- ✅ Code organization patterns
+
+---
+
+### 🧪 **Module 8: Testing & Debugging** *(Week 15-16)*
+```javascript
+// Comprehensive test suite
+describe('ShoppingCart', () => {
+  let cart;
+  
+  beforeEach(() => {
+    cart = new ShoppingCart();
+  });
+  
+  test('should add item to cart', () => {
+    const product = { id: 1, name: 'Laptop', price: 999 };
+    cart.addItem(product, 2);
+    
+    expect(cart.getItems()).toHaveLength(1);
+    expect(cart.getTotal()).toBe(1998);
+  });
+  
+  test('should remove item from cart', () => {
+    const product = { id: 1, name: 'Laptop', price: 999 };
+    cart.addItem(product, 2);
+    cart.removeItem(1);
+    
+    expect(cart.getItems()).toHaveLength(0);
+    expect(cart.getTotal()).toBe(0);
+  });
+  
+  test('should handle edge cases', () => {
+    expect(() => cart.addItem(null)).toThrow();
+    expect(() => cart.addItem({}, -1)).toThrow();
+  });
 });
 ```
 
-## 🏗️ Architecture
+**Directory:** [`07-testing-debugging/`](07-testing-debugging/)
+- **📁 unit-testing/** - Jest setup, Test patterns
+- **📁 integration-testing/** - API testing, Component testing
+- **📁 debugging/** - Chrome DevTools, VS Code debugging
+- **📁 performance/** - Profiling, Memory leaks, Optimization
 
-### Project Structure
+**Topics Covered:**
+- ✅ Unit testing with Jest
+- ✅ Integration testing
+- ✅ Debugging techniques
+- ✅ Performance profiling
+- ✅ Memory leak detection
+
+---
+
+### 🛠️ **Module 9: Tools & Workflow** *(Week 17-18)*
+```javascript
+// Webpack configuration example
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'bundle.[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ]
+};
+```
+
+**Directory:** [`09-tools-workflow/`](09-tools-workflow/)
+- **📁 npm-packages/** - Package management, Scripts
+- **📁 bundlers/** - Webpack, Vite configuration
+- **📁 linters-formatters/** - ESLint, Prettier setup
+- **📁 git-workflow/** - Git commands, Branch strategies
+
+**Topics Covered:**
+- ✅ NPM and package management
+- ✅ Module bundlers (Webpack, Vite)
+- ✅ Code quality tools
+- ✅ Git workflows
+- ✅ CI/CD pipelines
+
+---
+
+### 💼 **Module 10: Interview Preparation** *(Week 19-20)*
+```javascript
+// Common interview questions
+function deepClone(obj, hash = new WeakMap()) {
+  if (obj === null || typeof obj !== 'object') return obj;
+  if (hash.has(obj)) return hash.get(obj);
+  
+  const clone = Array.isArray(obj) ? [] : {};
+  hash.set(obj, clone);
+  
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      clone[key] = deepClone(obj[key], hash);
+    }
+  }
+  
+  return clone;
+}
+
+// Algorithm practice
+function findPairsWithSum(arr, target) {
+  const seen = new Set();
+  const pairs = [];
+  
+  for (let num of arr) {
+    const complement = target - num;
+    if (seen.has(complement)) {
+      pairs.push([complement, num]);
+    }
+    seen.add(num);
+  }
+  
+  return pairs;
+}
+```
+
+**Directory:** [`10-interviews-prep/`](10-interviews-prep/)
+- **📁 theory-questions/** - JavaScript concepts, Web fundamentals
+- **📁 coding-challenges/** - Easy, Medium, Hard problems
+- **📁 algorithms-data-structures/** - Arrays, Strings, Sorting, Searching
+- **📁 system-design/** - Frontend architecture, Scalability
+
+**Topics Covered:**
+- ✅ JavaScript theory questions
+- ✅ Coding challenges
+- ✅ Algorithms and data structures
+- ✅ System design basics
+- ✅ Behavioral interview preparation
+
+## 🏗️ Project Structure
+
+### Complete Directory Overview
 ```
 javascript-mastery/
 │
-├── 📁 README.md                         # Main Repository Overview
-├── 📁 package.json                     # Project Configuration
-├── 📁 .gitignore                       # Git Ignore File
-├── 📁 .eslintrc.js                     # ESLint Configuration
-├── 📁 .prettierrc                      # Prettier Configuration
-├── 📁 jest.config.js                   # Testing Configuration
-├── 📁 tsconfig.json                    # TypeScript Configuration (optional)
+├── 📁 00-getting-started/          # Module 1: JavaScript Basics
+├── 📁 01-functions-scope/          # Module 2: Functions & Scope
+├── 📁 02-objects-arrays/           # Module 3: Objects & Arrays
+├── 📁 03-dom-events/              # Module 4: DOM & Events
+├── 📁 04-asynchronous-js/         # Module 5: Async JavaScript
+├── 📁 05-modern-javascript/       # Module 6: Modern JS Features
+├── 📁 06-design-patterns/         # Module 7: Design Patterns
+├── 📁 07-testing-debugging/       # Module 8: Testing & Debugging
+├── 📁 08-projects/                # Complete Projects
+├── 📁 09-tools-workflow/          # Module 9: Development Tools
+├── 📁 10-interviews-prep/         # Module 10: Interview Prep
 │
-├── 📁 00-getting-started/
-│   ├── README.md                      # Introduction & Setup Guide
-│   ├── 📁 fundamentals/
-│   │   ├── README.md                  # JS Fundamentals Guide
-│   │   ├── 📁 variables/
-│   │   │   ├── README.md             # Variables & Data Types
-│   │   │   ├── examples.js
-│   │   │   └── exercises.js
-│   │   ├── 📁 operators/
-│   │   │   ├── README.md
-│   │   │   └── examples.js
-│   │   └── 📁 control-flow/
-│   │       ├── README.md
-│   │       ├── examples.js
-│   │       └── exercises.js
-│   ├── 📁 exercises/
-│   │   ├── basic-calculator.js
-│   │   ├── temperature-converter.js
-│   │   └── grade-calculator.js
-│   └── 📁 quizzes/
-│       └── quiz-1.md
-│
-├── 📁 01-functions-scope/
-│   ├── README.md                      # Functions & Scope Guide
-│   ├── 📁 functions/
-│   │   ├── README.md                  # Function Types Guide
-│   │   ├── function-declarations.js
-│   │   ├── arrow-functions.js
-│   │   └── iife.js
-│   ├── 📁 scope-closures/
-│   │   ├── README.md                  # Scope & Closures Guide
-│   │   ├── scope-examples.js
-│   │   ├── closure-patterns.js
-│   │   └── module-pattern.js
-│   ├── 📁 higher-order/
-│   │   ├── README.md
-│   │   ├── map-filter-reduce.js
-│   │   └── function-composition.js
-│   └── 📁 projects/
-│       ├── calculator-advanced.js
-│       └── todo-basic.js
-│
-├── 📁 02-objects-arrays/
-│   ├── README.md                      # Objects & Arrays Guide
-│   ├── 📁 objects/
-│   │   ├── README.md                  # Objects Deep Dive
-│   │   ├── object-creation.js
-│   │   ├── methods-this.js
-│   │   └── prototypes.js
-│   ├── 📁 arrays/
-│   │   ├── README.md                  # Array Methods Guide
-│   │   ├── basic-methods.js
-│   │   ├── advanced-methods.js
-│   │   └── array-transformations.js
-│   ├── 📁 es6-features/
-│   │   ├── README.md                  # ES6+ Features
-│   │   ├── destructuring.js
-│   │   ├── spread-rest.js
-│   │   └── optional-chaining.js
-│   └── 📁 projects/
-│       ├── shopping-cart.js
-│       ├── student-manager.js
-│       └── data-processor.js
-│
-├── 📁 03-dom-events/
-│   ├── README.md                      # DOM & Events Guide
-│   ├── 📁 html-templates/
-│   │   ├── index.html
-│   │   ├── styles.css
-│   │   └── script.js
-│   ├── 📁 dom-manipulation/
-│   │   ├── README.md                  # DOM Manipulation
-│   │   ├── selectors-traversal.js
-│   │   ├── create-append.js
-│   │   └── styles-classes.js
-│   ├── 📁 event-handling/
-│   │   ├── README.md                  # Event Handling
-│   │   ├── event-listeners.js
-│   │   ├── event-delegation.js
-│   │   └── custom-events.js
-│   ├── 📁 forms-validation/
-│   │   ├── README.md                  # Forms & Validation
-│   │   ├── form-handling.js
-│   │   ├── validation.js
-│   │   └── form-submission.js
-│   └── 📁 projects/
-│       ├── todo-app/
-│       │   ├── index.html
-│       │   ├── style.css
-│       │   └── app.js
-│       └── contact-form/
-│           ├── index.html
-│           └── form.js
-│
-├── 📁 04-asynchronous-js/
-│   ├── README.md                      # Asynchronous JS Guide
-│   ├── 📁 callbacks/
-│   │   ├── README.md                  # Callbacks Guide
-│   │   ├── basic-callbacks.js
-│   │   ├── callback-hell.js
-│   │   └── error-first-callbacks.js
-│   ├── 📁 promises/
-│   │   ├── README.md                  # Promises Guide
-│   │   ├── promise-creation.js
-│   │   ├── promise-chaining.js
-│   │   ├── promise-methods.js
-│   │   └── error-handling.js
-│   ├── 📁 async-await/
-│   │   ├── README.md                  # Async/Await Guide
-│   │   ├── basic-async.js
-│   │   ├── error-handling-async.js
-│   │   └── parallel-execution.js
-│   ├── 📁 api-integration/
-│   │   ├── README.md                  # API Integration
-│   │   ├── fetch-api.js
-│   │   ├── axios-examples.js
-│   │   └── rest-api-client.js
-│   └── 📁 projects/
-│       ├── weather-app/
-│       │   ├── index.html
-│       │   ├── style.css
-│       │   └── weather.js
-│       └── github-finder/
-│           ├── index.html
-│           └── github.js
-│
-├── 📁 05-modern-javascript/
-│   ├── README.md                      # Modern JavaScript Guide
-│   ├── 📁 modules/
-│   │   ├── README.md                  # ES6 Modules
-│   │   ├── 📁 src/
-│   │   │   ├── math.js
-│   │   │   ├── user.js
-│   │   │   └── main.js
-│   │   └── 📁 build/
-│   ├── 📁 classes-oop/
-│   │   ├── README.md                  # Classes & OOP
-│   │   ├── class-basics.js
-│   │   ├── inheritance.js
-│   │   ├── static-methods.js
-│   │   └── private-fields.js
-│   ├── 📁 data-structures/
-│   │   ├── README.md                  # Modern Data Structures
-│   │   ├── maps-sets.js
-│   │   ├── weakmaps-weaksets.js
-│   │   └── typed-arrays.js
-│   ├── 📁 iterators-generators/
-│   │   ├── README.md                  # Iterators & Generators
-│   │   ├── iterators.js
-│   │   ├── generators.js
-│   │   └── async-generators.js
-│   └── 📁 projects/
-│       ├── es6-modules-app/
-│       └── class-based-ui/
-│
-├── 📁 06-design-patterns/
-│   ├── README.md                      # Design Patterns Guide
-│   ├── 📁 creational/
-│   │   ├── README.md                  # Creational Patterns
-│   │   ├── singleton.js
-│   │   ├── factory.js
-│   │   └── builder.js
-│   ├── 📁 structural/
-│   │   ├── README.md                  # Structural Patterns
-│   │   ├── module.js
-│   │   ├── decorator.js
-│   │   └── facade.js
-│   ├── 📁 behavioral/
-│   │   ├── README.md                  # Behavioral Patterns
-│   │   ├── observer.js
-│   │   ├── strategy.js
-│   │   └── command.js
-│   ├── 📁 error-handling/
-│   │   ├── README.md                  # Error Handling Strategies
-│   │   ├── try-catch.js
-│   │   ├── error-boundaries.js
-│   │   └── custom-errors.js
-│   └── 📁 projects/
-│       ├── observer-pattern-app/
-│       └── strategy-pattern-app/
-│
-├── 📁 07-testing-debugging/
-│   ├── README.md                      # Testing & Debugging Guide
-│   ├── 📁 unit-testing/
-│   │   ├── README.md                  # Unit Testing
-│   │   ├── 📁 __tests__/
-│   │   │   ├── math.test.js
-│   │   │   ├── user.test.js
-│   │   │   └── utils.test.js
-│   │   └── 📁 src/
-│   ├── 📁 integration-testing/
-│   │   ├── README.md                  # Integration Testing
-│   │   └── api.test.js
-│   ├── 📁 debugging/
-│   │   ├── README.md                  # Debugging Techniques
-│   │   ├── chrome-dev-tools.md
-│   │   ├── vscode-debugging.md
-│   │   └── common-errors.md
-│   └── 📁 performance/
-│       ├── README.md                  # Performance Optimization
-│       ├── profiling.js
-│       ├── memory-leaks.js
-│       └── optimization-tips.md
-│
-├── 📁 08-projects/
-│   ├── README.md                      # Projects Guide
-│   ├── 📁 beginner/
-│   │   ├── todo-app/
-│   │   ├── calculator/
-│   │   ├── quiz-app/
-│   │   └── weather-app/
-│   ├── 📁 intermediate/
-│   │   ├── expense-tracker/
-│   │   ├── movie-search/
-│   │   ├── chat-app/
-│   │   └── e-commerce/
-│   ├── 📁 advanced/
-│   │   ├── realtime-dashboard/
-│   │   ├── code-editor/
-│   │   ├── kanban-board/
-│   │   └── social-media-app/
-│   └── 📁 portfolio/
-│       ├── README.md                  # Portfolio Setup
-│       └── project-templates/
-│
-├── 📁 09-tools-workflow/
-│   ├── README.md                      # Development Tools Guide
-│   ├── 📁 npm-packages/
-│   │   ├── README.md                  # NPM & Packages
-│   │   └── package-examples/
-│   ├── 📁 bundlers/
-│   │   ├── README.md                  # Bundlers (Webpack, Vite)
-│   │   ├── webpack.config.js
-│   │   └── vite.config.js
-│   ├── 📁 linters-formatters/
-│   │   ├── README.md                  # Code Quality
-│   │   ├── eslint-setup.md
-│   │   └── prettier-setup.md
-│   └── 📁 git-workflow/
-│       ├── README.md                  # Git & Version Control
-│       └── git-cheatsheet.md
-│
-├── 📁 10-interviews-prep/
-│   ├── README.md                      # Interview Preparation
-│   ├── 📁 theory-questions/
-│   │   ├── README.md                  # Theory Questions
-│   │   ├── javascript-core.md
-│   │   ├── es6-features.md
-│   │   └── web-fundamentals.md
-│   ├── 📁 coding-challenges/
-│   │   ├── README.md                  # Coding Challenges
-│   │   ├── easy/
-│   │   ├── medium/
-│   │   └── hard/
-│   ├── 📁 algorithms-data-structures/
-│   │   ├── README.md                  # Algorithms & DS
-│   │   ├── arrays.js
-│   │   ├── strings.js
-│   │   ├── sorting.js
-│   │   └── searching.js
-│   └── 📁 system-design/
-│       ├── README.md                  # System Design Basics
-│       └── frontend-architecture.md
-│
-├── 📁 templates/
-│   ├── project-template/
-│   │   ├── README.md
-│   │   ├── package.json
-│   │   ├── src/
-│   │   ├── tests/
-│   │   └── docs/
-│   ├── component-template/
-│   │   ├── README.md
-│   │   ├── component.js
-│   │   ├── component.test.js
-│   │   └── style.css
-│   └── api-template/
-│       ├── README.md
-│       └── api-client.js
-│
-├── 📁 docs/
-│   ├── CONTRIBUTING.md
-│   ├── CODE_OF_CONDUCT.md
-│   ├── CHANGELOG.md
-│   └── ROADMAP.md
-│
-├── 📁 scripts/
-│   ├── setup.js                      # Setup script
-│   ├── test-runner.js               # Custom test runner
-│   └── build.js                     # Build script
-│
-└── 📁 config/
-    ├── webpack/
-    │   ├── webpack.common.js
-    │   ├── webpack.dev.js
-    │   └── webpack.prod.js
-    └── babel/
-        └── babel.config.js
+├── 📁 templates/                  # Project templates
+├── 📁 docs/                      # Documentation
+├── 📁 scripts/                   # Build and utility scripts
+└── 📁 config/                    # Configuration files
 ```
 
-### Technology Stack
+### 📁 **Projects Directory** ([`08-projects/`](08-projects/))
+**Beginner Projects:**
+- **📁 todo-app/** - Full-featured task manager with LocalStorage
+- **📁 calculator/** - Scientific calculator with history
+- **📁 quiz-app/** - Interactive quiz with scoring system
+- **📁 weather-app/** - Real-time weather dashboard
 
-| Layer | Technology | Purpose |
-|-------|------------|---------|
-| **Runtime** | Node.js 18+ | JavaScript runtime |
-| **Language** | TypeScript 5.2+ | Type safety & tooling |
-| **Testing** | Jest, Supertest | Unit & integration tests |
-| **Linting** | ESLint, Prettier | Code quality |
-| **CI/CD** | GitHub Actions | Automated pipelines |
-| **Container** | Docker, Docker Compose | Environment consistency |
-| **Security** | Snyk, npm audit | Vulnerability scanning |
-| **Documentation** | JSDoc, Markdown | Code documentation |
+**Intermediate Projects:**
+- **📁 expense-tracker/** - Personal finance manager with charts
+- **📁 movie-search/** - Movie database with search and filters
+- **📁 chat-app/** - Real-time chat with WebSockets
+- **📁 e-commerce/** - Online store with cart and checkout
 
-## 🔧 Development Setup
+**Advanced Projects:**
+- **📁 realtime-dashboard/** - Live data visualization dashboard
+- **📁 code-editor/** - Browser-based code editor
+- **📁 kanban-board/** - Project management board
+- **📁 social-media-app/** - Full-stack social platform
 
-### Environment Configuration
+**Portfolio Templates:**
+- **📁 portfolio/** - Professional portfolio templates
+- **📁 project-templates/** - Ready-to-use project starters
 
-```bash
-# Clone and setup
-git clone <repository-url>
-cd javascript-mastery
-
-# Install dependencies
-npm install
-
-# Setup environment
-cp .env.example .env
-# Edit .env with your configuration
-
-# Initialize git hooks
-npm run prepare
-
-# Start development
-npm run dev
-```
+## ⚙️ Development Setup
 
 ### Available Scripts
 
@@ -582,11 +598,13 @@ npm run dev
 | `npm run build` | Build for production | Production |
 | `npm test` | Run all tests | Testing |
 | `npm run test:watch` | Run tests in watch mode | Development |
-| `npm run lint` | Run ESLint | All |
-| `npm run lint:fix` | Fix linting errors | All |
-| `npm run format` | Format code with Prettier | All |
+| `npm run test:coverage` | Generate coverage report | Testing |
+| `npm run lint` | Run ESLint | Code Quality |
+| `npm run lint:fix` | Fix linting errors | Code Quality |
+| `npm run format` | Format code with Prettier | Code Quality |
 | `npm run security` | Run security audit | Security |
 | `npm run docs` | Generate documentation | Documentation |
+| `npm run prepare` | Setup git hooks | Development |
 
 ### VS Code Configuration
 
@@ -595,234 +613,157 @@ npm run dev
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
   "typescript.preferences.importModuleSpecifier": "relative",
-  "javascript.preferences.importModuleSpecifier": "relative"
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": false,
+    "**/dist": true,
+    "**/coverage": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/coverage": true
+  }
 }
 ```
-
-## 📦 Projects Portfolio
-
-### 🥇 **Beginner Projects**
-
-| Project | Description | Technologies | Live Demo |
-|---------|-------------|--------------|-----------|
-| **Todo App** | Full-featured task manager | DOM, LocalStorage | [Demo](#) |
-| **Weather Dashboard** | Real-time weather updates | Fetch API, Geolocation | [Demo](#) |
-| **Expense Tracker** | Personal finance manager | Chart.js, IndexedDB | [Demo](#) |
-
-### 🥈 **Intermediate Projects**
-
-| Project | Description | Technologies | Live Demo |
-|---------|-------------|--------------|-----------|
-| **E-commerce Store** | Online shopping platform | React, Node.js, Stripe | [Demo](#) |
-| **Real-time Chat** | WebSocket-based messaging | Socket.io, Redis | [Demo](#) |
-| **Blog Platform** | CMS with authentication | Next.js, MongoDB | [Demo](#) |
-
-### 🥇 **Advanced Projects**
-
-| Project | Description | Technologies | Live Demo |
-|---------|-------------|--------------|-----------|
-| **Code Editor** | Browser-based IDE | Monaco, Web Assembly | [Demo](#) |
-| **Kanban Board** | Project management tool | Drag & Drop, WebSockets | [Demo](#) |
-| **Social Media App** | Full-stack social platform | GraphQL, Docker, AWS | [Demo](#) |
 
 ## 🧪 Testing & Quality
 
 ### Test Coverage Requirements
 
 ```javascript
-// Example: Comprehensive test suite
-describe('User Authentication', () => {
-  test('should register new user successfully', async () => {
-    const userData = {
-      email: 'test@example.com',
-      password: 'SecurePass123!'
-    };
-    
-    const response = await registerUser(userData);
-    
-    expect(response.success).toBe(true);
-    expect(response.user).toHaveProperty('id');
-    expect(response.user.email).toBe(userData.email);
-  });
-
-  test('should fail with invalid email', async () => {
-    const userData = { email: 'invalid', password: 'pass' };
-    
-    await expect(registerUser(userData))
-      .rejects
-      .toThrow('Invalid email format');
-  });
-});
+// Example test configuration
+module.exports = {
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/index.tsx',
+    '!src/reportWebVitals.ts'
+  ],
+  coverageThreshold: {
+    global: {
+      branches: 90,
+      functions: 90,
+      lines: 90,
+      statements: 90
+    }
+  }
+};
 ```
 
 ### Quality Gates
 
-| Metric | Target | Status |
-|--------|--------|--------|
-| **Test Coverage** | ≥ 90% | ✅ Passing |
-| **Code Duplication** | ≤ 3% | ✅ Passing |
-| **Security Vulnerabilities** | 0 Critical | ✅ Passing |
-| **Build Success Rate** | 100% | ✅ Passing |
-| **Code Review Coverage** | 100% | ✅ Passing |
+| Metric | Target | Tool | Status |
+|--------|--------|------|--------|
+| **Test Coverage** | ≥ 90% | Jest | ✅ Passing |
+| **Code Duplication** | ≤ 3% | SonarQube | ✅ Passing |
+| **Security Vulnerabilities** | 0 Critical | Snyk | ✅ Passing |
+| **Build Success Rate** | 100% | GitHub Actions | ✅ Passing |
+| **Code Review Coverage** | 100% | GitHub | ✅ Passing |
 
-## 🛡️ Security
+## 🎯 Project Showcase
 
-### Security Implementation
+### Beginner Projects
+| Project | Description | Tech Stack | Live Demo |
+|---------|-------------|------------|-----------|
+| **Todo App** | Task manager with drag & drop | DOM, LocalStorage | [Demo](#) |
+| **Weather Dashboard** | Real-time weather with maps | Fetch API, Chart.js | [Demo](#) |
+| **Expense Tracker** | Finance tracker with reports | IndexedDB, D3.js | [Demo](#) |
+| **Quiz App** | Interactive quiz with timer | Service Workers | [Demo](#) |
 
-```javascript
-// Security middleware example
-import crypto from 'crypto';
-import bcrypt from 'bcrypt';
+### Intermediate Projects
+| Project | Description | Tech Stack | Live Demo |
+|---------|-------------|------------|-----------|
+| **E-commerce Store** | Online shopping platform | React, Node.js, Stripe | [Demo](#) |
+| **Real-time Chat** | WebSocket messaging app | Socket.io, Redis | [Demo](#) |
+| **Blog Platform** | CMS with authentication | Next.js, MongoDB | [Demo](#) |
+| **Movie Database** | Search and filter movies | TMDB API, React | [Demo](#) |
 
-class SecurityManager {
-  static async hashPassword(password) {
-    const saltRounds = 12;
-    return await bcrypt.hash(password, saltRounds);
-  }
+### Advanced Projects
+| Project | Description | Tech Stack | Live Demo |
+|---------|-------------|------------|-----------|
+| **Code Editor** | Browser-based IDE | Monaco, WebAssembly | [Demo](#) |
+| **Kanban Board** | Project management tool | Drag & Drop, WebSockets | [Demo](#) |
+| **Social Media App** | Full-stack platform | GraphQL, Docker, AWS | [Demo](#) |
+| **Realtime Dashboard** | Data visualization | WebSockets, D3.js | [Demo](#) |
 
-  static validatePassword(input, hash) {
-    return bcrypt.compare(input, hash);
-  }
+## 📚 Additional Resources
 
-  static generateCSRFToken() {
-    return crypto.randomBytes(32).toString('hex');
-  }
-
-  static sanitizeInput(input) {
-    // Prevent XSS attacks
-    return input
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#x27;');
-  }
-}
+### 📖 **Recommended Learning Path**
+```markdown
+Week 1-2:   Complete Module 1 (Getting Started)
+Week 3-4:   Complete Module 2 (Functions & Scope)
+Week 5-6:   Complete Module 3 (Objects & Arrays)
+Week 7-8:   Complete Module 4 (DOM & Events)
+Week 9-10:  Complete Module 5 (Async JavaScript)
+Week 11-12: Complete Module 6 (Modern JavaScript)
+Week 13-14: Complete Module 7 (Design Patterns)
+Week 15-16: Complete Module 8 (Testing & Debugging)
+Week 17-18: Complete Module 9 (Tools & Workflow)
+Week 19-20: Complete Module 10 (Interview Prep)
+Week 21+:   Build portfolio projects
 ```
 
-### Security Headers
+### 🔗 **External Resources**
+- **📚 Books**: "Eloquent JavaScript", "You Don't Know JS"
+- **🎥 Courses**: freeCodeCamp, JavaScript.info, MDN Web Docs
+- **💬 Communities**: Stack Overflow, Dev.to, Hashnode
+- **🛠️ Tools**: VS Code Extensions, Chrome DevTools, Postman
 
+### 📊 **Progress Tracking**
 ```javascript
-// Security headers configuration
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'"],
-      scriptSrc: ["'self'", "'unsafe-inline'"],
-      imgSrc: ["'self'", "data:", "https:"],
-      connectSrc: ["'self'", "https://api.example.com"]
-    }
+// Track your learning progress
+const progress = {
+  modulesCompleted: 0,
+  totalModules: 10,
+  projectsBuilt: 0,
+  quizzesPassed: 0,
+  
+  getCompletionPercentage() {
+    return (this.modulesCompleted / this.totalModules) * 100;
   },
-  hsts: {
-    maxAge: 31536000,
-    includeSubDomains: true,
-    preload: true
+  
+  updateProgress(module, project, quiz) {
+    this.modulesCompleted += module ? 1 : 0;
+    this.projectsBuilt += project ? 1 : 0;
+    this.quizzesPassed += quiz ? 1 : 0;
   }
-}));
-```
-
-## 📈 Performance
-
-### Optimization Techniques
-
-```javascript
-// Lazy loading example
-const LazyComponent = React.lazy(() => import('./HeavyComponent'));
-
-// Memoization pattern
-const memoizedFunction = useMemo(() => {
-  return expensiveCalculation(data);
-}, [data]);
-
-// Virtual scrolling
-const VirtualList = ({ items, itemHeight, containerHeight }) => {
-  const [scrollTop, setScrollTop] = useState(0);
-  const startIndex = Math.floor(scrollTop / itemHeight);
-  const endIndex = Math.min(
-    items.length - 1,
-    Math.floor((scrollTop + containerHeight) / itemHeight)
-  );
-
-  return (
-    <div onScroll={e => setScrollTop(e.target.scrollTop)}>
-      {items.slice(startIndex, endIndex + 1).map(item => (
-        <Item key={item.id} height={itemHeight} {...item} />
-      ))}
-    </div>
-  );
 };
 ```
 
-### Performance Metrics
-
-| Metric | Target | Current |
-|--------|--------|---------|
-| **First Contentful Paint** | < 1.5s | 0.8s |
-| **Time to Interactive** | < 3s | 2.1s |
-| **Bundle Size** | < 200KB | 185KB |
-| **Memory Usage** | < 50MB | 42MB |
-| **API Response Time** | < 200ms | 120ms |
-
 ## 🤝 Contributing
 
-We love contributions! Here's how you can help:
+We welcome contributions! Here's how you can help:
 
-### Contribution Workflow
-
+### 📋 **Contribution Guidelines**
 1. **Fork** the repository
-2. **Clone** your fork
-3. **Create** a feature branch
-4. **Commit** your changes
-5. **Push** to your branch
+2. **Clone** your fork: `git clone https://github.com/jedancodeacademy-bit/javascript-mastery.git`
+3. **Create** a feature branch: `git checkout -b feature/amazing-feature`
+4. **Commit** your changes: `git commit -m 'feat: add amazing feature'`
+5. **Push** to your branch: `git push origin feature/amazing-feature`
 6. **Open** a Pull Request
 
-### Code Standards
+### 🎯 **Areas for Contribution**
+- **Add new examples** to existing modules
+- **Create new projects** for the portfolio
+- **Improve documentation** and add explanations
+- **Fix bugs** or improve existing code
+- **Add tests** for uncovered code
+- **Translate content** to other languages
 
+### ✅ **Before Submitting PR**
 ```bash
-# Before submitting a PR
+# Run these checks
 npm run lint          # Check code style
 npm run test          # Run all tests
 npm run build         # Ensure build works
 npm run security      # Check for vulnerabilities
-```
-
-### Commit Convention
-
-We use [Conventional Commits](https://www.conventionalcommits.org/):
-
-```
-feat(module): add new authentication system
-fix(api): resolve user registration bug
-docs(readme): update installation instructions
-test(core): add unit tests for utils
-```
-
-### Pull Request Template
-
-```markdown
-## Description
-Brief description of changes
-
-## Type of Change
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Breaking change
-- [ ] Documentation update
-
-## Testing
-- [ ] Unit tests added
-- [ ] Integration tests updated
-- [ ] Manual testing completed
-
-## Checklist
-- [ ] Code follows style guidelines
-- [ ] Self-review completed
-- [ ] Documentation updated
-- [ ] Tests passing
-- [ ] No new warnings
 ```
 
 ## 📄 License
@@ -847,28 +788,24 @@ copies or substantial portions of the Software.
 
 ## 🌟 Support
 
-### Community & Resources
+### 🆘 **Getting Help**
+1. **Check the Documentation**: [https://jedancodeacademy-bit.github.io/javascript-mastery/](https://jedancodeacademy-bit.github.io/javascript-mastery/)
+2. **Search Issues**: [GitHub Issues](https://github.com/jedancodeacademy-bit/javascript-mastery/issues)
+3. **Ask Questions**: [GitHub Discussions](https://github.com/jedancodeacademy-bit/javascript-mastery/discussions)
+4. **Email Support**: solomon@example.com
 
+### 🌐 **Community & Resources**
 - **Discord Community**: [Join our server](#)
 - **GitHub Discussions**: [Ask questions](#)
 - **Stack Overflow**: Use tag `javascript-mastery`
 - **Twitter**: [@JS_Mastery](#)
 
-### Getting Help
-
-1. Check the [Documentation](https://jedancodeacademy-bit.github.io/javascript-mastery/)
-2. Search [existing issues](https://github.com/jedancodeacademy-bit/javascript-mastery/issues)
-3. Ask in [GitHub Discussions](https://github.com/jedancodeacademy-bit/javascript-mastery/discussions)
-4. Email: support@javascript-mastery.com
-
-### Sponsorship
-
+### ☕ **Support the Project**
 If you find this project helpful, consider:
-
 - ⭐ **Starring** the repository
 - 🐛 **Reporting** issues
 - 🔧 **Submitting** pull requests
-- ☕ **Buying a coffee**: [Sponsor](#)
+- 💖 **Sponsoring**: [GitHub Sponsors](#)
 
 ---
 
@@ -878,7 +815,8 @@ If you find this project helpful, consider:
 
 **Start your journey today and become a production-ready JavaScript developer!**
 
-[![Start Learning](https://img.shields.io/badge/Start_Learning-Now-brightgreen?style=for-the-badge&logo=javascript)](https://github.com/jedancodeacademy-bit/javascript-mastery#getting-started)
+[![Start Learning](https://img.shields.io/badge/Start_with_Module_1-Now-brightgreen?style=for-the-badge&logo=javascript)](00-getting-started/)
+[![View Projects](https://img.shields.io/badge/View_Projects-Portfolio-blue?style=for-the-badge&logo=github)](08-projects/)
 [![Join Community](https://img.shields.io/badge/Join_Community-Discord-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/javascript-mastery)
 
 *Built with ❤️ by Solomon Kassa*
@@ -887,22 +825,32 @@ If you find this project helpful, consider:
 
 ---
 
-### 📊 Repository Stats
+### 📊 **Repository Stats**
+![GitHub stars](https://img.shields.io/github/stars/jedancodeacademy-bit/javascript-mastery?style=social)
+![GitHub forks](https://img.shields.io/github/forks/jedancodeacademy-bit/javascript-mastery?style=social)
+![GitHub issues](https://img.shields.io/github/issues/jedancodeacademy-bit/javascript-mastery)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/jedancodeacademy-bit/javascript-mastery)
+![GitHub contributors](https://img.shields.io/github/contributors/jedancodeacademy-bit/javascript-mastery)
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/javascript-mastery?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/javascript-mastery?style=social)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/javascript-mastery)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/javascript-mastery)
-![GitHub contributors](https://img.shields.io/github/contributors/yourusername/javascript-mastery)
-
-### 🎯 Roadmap
-
+### 🎯 **Roadmap**
 - [ ] Add interactive coding playground
 - [ ] Create video tutorial series
 - [ ] Add AI-powered code review
 - [ ] Develop mobile learning app
 - [ ] Create certification program
+- [ ] Add TypeScript deep dive module
+- [ ] Create React/Node.js advanced modules
 
 ---
 
+<div align="center">
+
+**Happy Coding! 🚀**
+
 *Last Updated: January 2026 | Version: 1.0.0 | [View Changelog](CHANGELOG.md)*
+
+[![JavaScript](https://img.shields.io/badge/Made_with-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Node.js](https://img.shields.io/badge/Powered_by-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/Enhanced_by-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+
+</div>
