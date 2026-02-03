@@ -4,7 +4,7 @@
 ## 📚 Table of Contents
 1. [Introduction](#introduction)
 2. [Function Types & Patterns](functions/README.md)
-3. [Scope & Closures](#scope--closures)
+3. [Scope & Closures](scope-closures/README.md)
 4. [Higher-Order Functions](higher-orders/README.md)
 5. [Projects](projects/README.md)
 6. [Best Practices](#best-practices)
