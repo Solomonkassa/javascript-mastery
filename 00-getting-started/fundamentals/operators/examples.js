@@ -22,7 +22,7 @@ console.log(`Division with decimal: 10 / 3 = ${10 / 3}`);
 console.log(`Remainder: 17 % 5 = ${17 % 5}`);
 console.log(`Exponentiation: 2 ** 3 = ${2 ** 3}`);
 console.log(`Square root using **: 16 ** 0.5 = ${16 ** 0.5}`);
-console.log(`Cube root: 27 ** (1/3) = ${27 ** (1/3)}`);
+console.log(`Cube root: 27 ** (1 / 3) = ${27 ** (1 / 3)}`);
 
 // Unary Plus and Minus
 console.log("\n🔹 Unary Operators:");
@@ -68,12 +68,15 @@ console.log(`0.3 - 0.1 = ${0.3 - 0.1}`);
 console.log(`0.3 - 0.1 === 0.2: ${0.3 - 0.1 === 0.2}`);
 
 // Fix floating point issues
-function safeAdd(a, b) {
-    const multiplier = Math.pow(10, Math.max(
-        a.toString().split('.')[1]?.length || 0,
-        b.toString().split('.')[1]?.length || 0
-    ));
-    return (a * multiplier + b * multiplier) / multiplier;
+function safeAdd(num1, num2) {
+  const multiplier = Math.pow(
+    10,
+    Math.max(
+      num1.toString().split(".")[1]?.length || 0,
+      num2.toString().split(".")[1]?.length || 0,
+    ),
+  );
+  return (num1 * multiplier + num2 * multiplier) / multiplier;
 }
 console.log(`Safe add: safeAdd(0.1, 0.2) = ${safeAdd(0.1, 0.2)}`);
 console.log(`Safe add equals 0.3: ${safeAdd(0.1, 0.2) === 0.3}`);
@@ -88,8 +91,8 @@ console.log("=====================\n");
 // Basic Assignment
 console.log("🔹 Basic Assignment:");
 let x = 10;
-let y = x;
-let z = x + y * 2;
+const y = x;
+const z = x + y * 2;
 console.log(`x = ${x}, y = ${y}, z = ${z}`);
 
 // Multiple Assignment
@@ -138,41 +141,47 @@ console.log(`Array: [${numbers}]`);
 console.log(`First: ${first}, Second: ${second}, Rest: [${rest}]`);
 
 // Swapping variables
-let m = 5, n = 10;
+let m = 5;
+let n = 10;
 console.log(`Before swap: m = ${m}, n = ${n}`);
 [m, n] = [n, m];
 console.log(`After swap: m = ${m}, n = ${n}`);
 
 // Object Destructuring
 const user = {
-    name: "John Doe",
-    age: 30,
-    email: "john@example.com",
-    address: {
-        city: "New York",
-        country: "USA"
-    }
+  name: "John Doe",
+  age: 30,
+  email: "john@example.com",
+  address: {
+    city: "New York",
+    country: "USA",
+  },
 };
 
-const { name: userName, age, email = "no-email@example.com", address: { city } } = user;
+const {
+  name: userName,
+  age,
+  email = "no-email@example.com",
+  address: { city },
+} = user;
 console.log(`User:`, user);
 console.log(`Destructured: userName = "${userName}", age = ${age}, city = "${city}"`);
 console.log(`Default email if missing: email = "${email}"`);
 
 // Nested Destructuring
 const company = {
-    name: "TechCorp",
-    employees: [
-        { id: 1, name: "Alice", role: "Developer" },
-        { id: 2, name: "Bob", role: "Designer" }
-    ],
-    locations: ["NYC", "SF", "London"]
+  name: "TechCorp",
+  employees: [
+    { id: 1, name: "Alice", role: "Developer" },
+    { id: 2, name: "Bob", role: "Designer" },
+  ],
+  locations: ["NYC", "SF", "London"],
 };
 
-const { 
-    name: companyName, 
-    employees: [{ name: firstEmployee }],
-    locations: [primaryLocation]
+const {
+  name: companyName,
+  employees: [{ name: firstEmployee }],
+  locations: [primaryLocation],
 } = company;
 
 console.log(`Company: ${companyName}`);
@@ -213,7 +222,7 @@ console.log(`"" == 0: ${"" == 0}`);
 console.log(`"0" == false: ${"0" == false}`);
 console.log(`[] == 0: ${[] == 0}`);
 console.log(`[] == false: ${[] == false}`);
-console.log(`[1,2] == "1,2": ${[1,2] == "1,2"}`);
+console.log(`[1, 2] == "1,2": ${[1, 2] == "1,2"}`);
 
 // Loose Inequality (!=)
 console.log("\n🔹 Loose Inequality (!=):");
@@ -308,8 +317,8 @@ console.log(`!!"": ${!!""}`);
 console.log("\n🔹 Short-Circuit Evaluation:");
 
 function expensiveOperation(name) {
-    console.log(`  [Called] expensiveOperation("${name}")`);
-    return true;
+  console.log(`  [Called] expensiveOperation("${name}")`);
+  return true;
 }
 
 console.log(`\nAND short-circuit (false && expensiveOperation):`);
@@ -361,18 +370,18 @@ console.log(`"" ?? "hello": ${"" ?? "hello"}`);
 // Optional Chaining (?.)
 console.log("\n🔹 Optional Chaining (?.):");
 const order = {
-    id: 123,
-    customer: {
-        name: "John",
-        address: {
-            city: "NYC",
-            zipCode: "10001"
-        }
+  id: 123,
+  customer: {
+    name: "John",
+    address: {
+      city: "NYC",
+      zipCode: "10001",
     },
-    items: [
-        { id: 1, name: "Product A", price: 29.99 },
-        { id: 2, name: "Product B", price: 49.99 }
-    ]
+  },
+  items: [
+    { id: 1, name: "Product A", price: 29.99 },
+    { id: 2, name: "Product B", price: 49.99 },
+  ],
 };
 
 console.log(`Customer city: ${order.customer?.address?.city}`);
@@ -383,18 +392,18 @@ console.log(`Combined with ??: ${order.payment?.method ?? "Credit Card"}`);
 
 // Complex Optional Chaining
 const companyData = {
-    departments: [
-        {
-            name: "Engineering",
-            manager: {
-                name: "Alice",
-                contact: {
-                    email: "alice@company.com",
-                    phone: "555-0101"
-                }
-            }
-        }
-    ]
+  departments: [
+    {
+      name: "Engineering",
+      manager: {
+        name: "Alice",
+        contact: {
+          email: "alice@company.com",
+          phone: "555-0101",
+        },
+      },
+    },
+  ],
 };
 
 const managerPhone = companyData.departments?.[0]?.manager?.contact?.phone;
@@ -424,14 +433,15 @@ console.log(`-10 >>> 1: ${-10 >>> 1} (zero-fill right shift)`);
 console.log("\n🔹 Practical Bitwise Applications:");
 
 // 1. Check if number is even/odd
-function isEven(n) {
-    return (n & 1) === 0;
+function isEven(num) {
+  return (num & 1) === 0;
 }
 console.log(`Is 5 even? ${isEven(5)}`);
 console.log(`Is 8 even? ${isEven(8)}`);
 
 // 2. Swap numbers without temp variable
-let num1 = 5, num2 = 10;
+let num1 = 5;
+let num2 = 10;
 console.log(`Before swap: num1 = ${num1}, num2 = ${num2}`);
 num1 = num1 ^ num2;
 num2 = num1 ^ num2;
@@ -439,17 +449,17 @@ num1 = num1 ^ num2;
 console.log(`After XOR swap: num1 = ${num1}, num2 = ${num2}`);
 
 // 3. Check if power of two
-function isPowerOfTwo(n) {
-    return n > 0 && (n & (n - 1)) === 0;
+function isPowerOfTwo(num) {
+  return num > 0 && (num & (num - 1)) === 0;
 }
 console.log(`Is 16 power of two? ${isPowerOfTwo(16)}`);
 console.log(`Is 15 power of two? ${isPowerOfTwo(15)}`);
 console.log(`Is 0 power of two? ${isPowerOfTwo(0)}`);
 
 // 4. Get absolute value (for 32-bit integers)
-function abs(n) {
-    const mask = n >> 31;
-    return (n + mask) ^ mask;
+function abs(num) {
+  const mask = num >> 31;
+  return (num + mask) ^ mask;
 }
 console.log(`Absolute value of -15: ${abs(-15)}`);
 console.log(`Absolute value of 15: ${abs(15)}`);
@@ -458,15 +468,17 @@ console.log(`Absolute value of 15: ${abs(15)}`);
 console.log("\n🔹 Permission System Example:");
 
 const PERMISSIONS = {
-    READ:   1 << 0,  // 0001 = 1
-    WRITE:  1 << 1,  // 0010 = 2
-    DELETE: 1 << 2,  // 0100 = 4
-    ADMIN:  1 << 3   // 1000 = 8
+  READ: 1 << 0, // 0001 = 1
+  WRITE: 1 << 1, // 0010 = 2
+  DELETE: 1 << 2, // 0100 = 4
+  ADMIN: 1 << 3, // 1000 = 8
 };
 
 // User permissions
 let userPermissions = PERMISSIONS.READ | PERMISSIONS.WRITE; // 0011 = 3
-console.log(`User permissions: ${userPermissions} (binary: ${userPermissions.toString(2).padStart(4, '0')})`);
+console.log(
+  `User permissions: ${userPermissions} (binary: ${userPermissions.toString(2).padStart(4, "0")})`,
+);
 
 // Check permissions
 console.log(`Can read? ${(userPermissions & PERMISSIONS.READ) !== 0}`);
@@ -475,17 +487,17 @@ console.log(`Is admin? ${(userPermissions & PERMISSIONS.ADMIN) !== 0}`);
 
 // Add permission
 userPermissions |= PERMISSIONS.DELETE;
-console.log(`After adding DELETE: ${userPermissions.toString(2).padStart(4, '0')}`);
+console.log(`After adding DELETE: ${userPermissions.toString(2).padStart(4, "0")}`);
 
 // Remove permission
 userPermissions &= ~PERMISSIONS.WRITE;
-console.log(`After removing WRITE: ${userPermissions.toString(2).padStart(4, '0')}`);
+console.log(`After removing WRITE: ${userPermissions.toString(2).padStart(4, "0")}`);
 
 // Toggle permission
 userPermissions ^= PERMISSIONS.ADMIN;
-console.log(`After toggling ADMIN: ${userPermissions.toString(2).padStart(4, '0')}`);
+console.log(`After toggling ADMIN: ${userPermissions.toString(2).padStart(4, "0")}`);
 userPermissions ^= PERMISSIONS.ADMIN;
-console.log(`After toggling ADMIN again: ${userPermissions.toString(2).padStart(4, '0')}`);
+console.log(`After toggling ADMIN again: ${userPermissions.toString(2).padStart(4, "0")}`);
 
 // ==========================
 // 6. SPECIAL OPERATORS
@@ -502,17 +514,14 @@ console.log(`Age ${age}: ${status}`);
 
 // Nested ternary
 const score = 85;
-const grade = score >= 90 ? "A" :
-              score >= 80 ? "B" :
-              score >= 70 ? "C" :
-              score >= 60 ? "D" : "F";
+const grade = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : score >= 60 ? "D" : "F";
 console.log(`Score ${score}: Grade ${grade}`);
 
 // Returning different types
 const isAdmin = true;
-const welcomeMessage = isAdmin 
-    ? { type: "admin", message: "Welcome Administrator!" }
-    : { type: "user", message: "Welcome User!" };
+const welcomeMessage = isAdmin
+  ? { type: "admin", message: "Welcome Administrator!" }
+  : { type: "user", message: "Welcome User!" };
 console.log(`Welcome message:`, welcomeMessage);
 
 // typeof Operator
@@ -524,23 +533,23 @@ console.log(`typeof undefined: ${typeof undefined}`);
 console.log(`typeof null: ${typeof null} (historical bug!)`);
 console.log(`typeof {}: ${typeof {}}`);
 console.log(`typeof []: ${typeof []}`);
-console.log(`typeof function(){}: ${typeof function(){}}`);
+console.log(`typeof function(){}: ${typeof function() {}}`);
 console.log(`typeof Symbol(): ${typeof Symbol()}`);
 console.log(`typeof 123n: ${typeof 123n}`);
 
 // Better type checking
 function getType(value) {
-    if (value === null) return "null";
-    if (Array.isArray(value)) return "array";
-    if (value instanceof Date) return "date";
-    if (value instanceof RegExp) return "regexp";
-    if (Number.isNaN(value)) return "NaN";
-    return typeof value;
+  if (value === null) return "null";
+  if (Array.isArray(value)) return "array";
+  if (value instanceof Date) return "date";
+  if (value instanceof RegExp) return "regexp";
+  if (Number.isNaN(value)) return "NaN";
+  return typeof value;
 }
 
 console.log("\n🔹 Better type checking:");
 console.log(`getType(null): ${getType(null)}`);
-console.log(`getType([1,2,3]): ${getType([1,2,3])}`);
+console.log(`getType([1, 2, 3]): ${getType([1, 2, 3])}`);
 console.log(`getType(new Date()): ${getType(new Date())}`);
 console.log(`getType(/regex/): ${getType(/regex/)}`);
 console.log(`getType(NaN): ${getType(NaN)}`);
@@ -572,10 +581,10 @@ console.log(`new Date() instanceof Date: ${new Date() instanceof Date}`);
 // delete Operator
 console.log("\n🔹 delete Operator:");
 const car = {
-    make: "Toyota",
-    model: "Camry",
-    year: 2020,
-    features: ["AC", "GPS", "Leather"]
+  make: "Toyota",
+  model: "Camry",
+  year: 2020,
+  features: ["AC", "GPS", "Leather"],
 };
 
 console.log("Before delete:", car);
@@ -588,8 +597,8 @@ console.log(`"model" in car: ${"model" in car}`);
 console.log(`car.model: ${car.model}`);
 
 // Cannot delete variables
-let myVar = 10;
-console.log(`\nmyVar before: ${myVar}`);
+const myVar = 10;
+console.log(`\nmyVar: ${myVar}`);
 // delete myVar; // Would throw in strict mode
 console.log(`Cannot delete variables`);
 
@@ -611,10 +620,10 @@ console.log(`void "hello": ${void "hello"}`);
 
 // Common use: IIFE
 console.log("\nIIFE with void:");
-void function() {
-    const secret = "This is private";
-    console.log(`  Inside IIFE: ${secret}`);
-}();
+void (function () {
+  const secret = "This is private";
+  console.log(`  Inside IIFE: ${secret}`);
+})();
 // console.log(secret); // Would be ReferenceError
 
 // Prevent navigation (historical)
@@ -650,14 +659,16 @@ console.log(`Evaluates as: 2 ** (3 ** 2) = 2 ** 9 = 512`);
 console.log(`Not: (2 ** 3) ** 2 = 8 ** 2 = 64`);
 
 console.log("\n🔹 Ternary Operator Precedence:");
-const t = 1, u = 2, v = 3;
+const t = 1;
+const u = 2;
+const v = 3;
 const result = t > u ? t : u > v ? u : v;
 console.log(`t > u ? t : u > v ? u : v`);
 console.log(`Evaluates as: t > u ? t : (u > v ? u : v)`);
 console.log(`Result: ${result}`);
 
 console.log("\n🔹 Complex Expression:");
-const complex = 5 + 3 * 2 > 10 && 8 / 4 === 2 || !false;
+const complex = (5 + 3 * 2 > 10 && 8 / 4 === 2) || !false;
 console.log(`5 + 3 * 2 > 10 && 8 / 4 === 2 || !false`);
 console.log(`Step 1: 3 * 2 = 6`);
 console.log(`Step 2: 5 + 6 = 11`);
@@ -671,8 +682,8 @@ console.log(`Result: ${complex}`);
 
 // Using parentheses for clarity
 console.log("\n🔹 Using Parentheses for Clarity:");
-const clearExpression = ((5 + (3 * 2)) > 10) && ((8 / 4) === 2) || (!false);
-console.log(`Clear version: ((5 + (3 * 2)) > 10) && ((8 / 4) === 2) || (!false)`);
+const clearExpression = (5 + 3 * 2 > 10 && 8 / 4 === 2) || !false;
+console.log(`Clear version: (5 + 3 * 2 > 10 && 8 / 4 === 2) || !false`);
 console.log(`Result: ${clearExpression}`);
 
 // ==========================
@@ -685,17 +696,17 @@ console.log("========================\n");
 // 1. E-commerce Calculator
 console.log("🔹 E-commerce Price Calculator:");
 function calculateTotal(price, quantity, taxRate = 0.08, discount = 0) {
-    const subtotal = price * quantity;
-    const discountAmount = subtotal * discount;
-    const taxedAmount = (subtotal - discountAmount) * taxRate;
-    const total = subtotal - discountAmount + taxedAmount;
-    
-    return {
-        subtotal: +subtotal.toFixed(2),
-        discount: +discountAmount.toFixed(2),
-        tax: +taxedAmount.toFixed(2),
-        total: +total.toFixed(2)
-    };
+  const subtotal = price * quantity;
+  const discountAmount = subtotal * discount;
+  const taxedAmount = (subtotal - discountAmount) * taxRate;
+  const total = subtotal - discountAmount + taxedAmount;
+
+  return {
+    subtotal: +subtotal.toFixed(2),
+    discount: +discountAmount.toFixed(2),
+    tax: +taxedAmount.toFixed(2),
+    total: +total.toFixed(2),
+  };
 }
 
 const orderTotal = calculateTotal(29.99, 3, 0.08, 0.1);
@@ -704,36 +715,39 @@ console.log("Order Calculation:", orderTotal);
 // 2. User Validation
 console.log("\n🔹 User Input Validation:");
 function validateUserInput(username, email, age) {
-    const errors = [];
-    
-    // Username: 3-20 chars, alphanumeric
-    if (!username || username.length < 3 || username.length > 20) {
-        errors.push("Username must be 3-20 characters");
-    }
-    if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-        errors.push("Username can only contain letters, numbers, and underscores");
-    }
-    
-    // Email: basic validation
-    if (!email || !email.includes("@") || !email.includes(".")) {
-        errors.push("Invalid email address");
-    }
-    
-    // Age: 13-120
-    const ageNum = Number(age);
-    if (isNaN(ageNum) || ageNum < 13 || ageNum > 120) {
-        errors.push("Age must be between 13 and 120");
-    }
-    
-    return {
-        isValid: errors.length === 0,
-        errors,
-        userData: errors.length === 0 ? {
+  const errors = [];
+
+  // Username: 3-20 chars, alphanumeric
+  if (!username || username.length < 3 || username.length > 20) {
+    errors.push("Username must be 3-20 characters");
+  }
+  if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+    errors.push("Username can only contain letters, numbers, and underscores");
+  }
+
+  // Email: basic validation
+  if (!email || !email.includes("@") || !email.includes(".")) {
+    errors.push("Invalid email address");
+  }
+
+  // Age: 13-120
+  const ageNum = Number(age);
+  if (Number.isNaN(ageNum) || ageNum < 13 || ageNum > 120) {
+    errors.push("Age must be between 13 and 120");
+  }
+
+  return {
+    isValid: errors.length === 0,
+    errors,
+    userData:
+      errors.length === 0
+        ? {
             username: username.trim(),
             email: email.toLowerCase().trim(),
-            age: ageNum
-        } : null
-    };
+            age: ageNum,
+          }
+        : null,
+  };
 }
 
 const validation = validateUserInput("john_doe123", "john@example.com", "25");
@@ -742,39 +756,39 @@ console.log("Validation Result:", validation);
 // 3. Shipping Cost Calculator
 console.log("\n🔹 Shipping Cost Calculator:");
 function calculateShipping(orderTotal, shippingType, isVIP = false) {
-    let baseCost = 0;
-    
-    // Free shipping for orders over $50 or VIP customers
-    if (orderTotal > 50 || isVIP) {
-        baseCost = 0;
-    } else {
-        // Different shipping types
-        switch (shippingType) {
-            case "standard":
-                baseCost = 5;
-                break;
-            case "express":
-                baseCost = 10;
-                break;
-            case "overnight":
-                baseCost = 25;
-                break;
-            default:
-                baseCost = 5;
-        }
+  let baseCost = 0;
+
+  // Free shipping for orders over $50 or VIP customers
+  if (orderTotal > 50 || isVIP) {
+    baseCost = 0;
+  } else {
+    // Different shipping types
+    switch (shippingType) {
+      case "standard":
+        baseCost = 5;
+        break;
+      case "express":
+        baseCost = 10;
+        break;
+      case "overnight":
+        baseCost = 25;
+        break;
+      default:
+        baseCost = 5;
     }
-    
-    // Add tax to shipping
-    const tax = baseCost * 0.08;
-    const total = baseCost + tax;
-    
-    return {
-        type: shippingType,
-        baseCost: +baseCost.toFixed(2),
-        tax: +tax.toFixed(2),
-        total: +total.toFixed(2),
-        isFree: baseCost === 0
-    };
+  }
+
+  // Add tax to shipping
+  const tax = baseCost * 0.08;
+  const total = baseCost + tax;
+
+  return {
+    type: shippingType,
+    baseCost: +baseCost.toFixed(2),
+    tax: +tax.toFixed(2),
+    total: +total.toFixed(2),
+    isFree: baseCost === 0,
+  };
 }
 
 const shipping = calculateShipping(45, "express", false);
@@ -783,103 +797,105 @@ console.log("Shipping Calculation:", shipping);
 // 4. Permission System
 console.log("\n🔹 Advanced Permission System:");
 class PermissionSystem {
-    static PERMISSIONS = {
-        VIEW:   1 << 0,
-        CREATE: 1 << 1,
-        EDIT:   1 << 2,
-        DELETE: 1 << 3,
-        ADMIN:  1 << 4
-    };
-    
-    static ROLES = {
-        GUEST: PermissionSystem.PERMISSIONS.VIEW,
-        USER: PermissionSystem.PERMISSIONS.VIEW | 
-              PermissionSystem.PERMISSIONS.CREATE | 
-              PermissionSystem.PERMISSIONS.EDIT,
-        MODERATOR: PermissionSystem.PERMISSIONS.VIEW |
-                   PermissionSystem.PERMISSIONS.CREATE |
-                   PermissionSystem.PERMISSIONS.EDIT |
-                   PermissionSystem.PERMISSIONS.DELETE,
-        ADMIN: 0b11111 // All permissions
-    };
-    
-    constructor(userRole) {
-        this.permissions = userRole;
-    }
-    
-    hasPermission(permission) {
-        return (this.permissions & permission) !== 0;
-    }
-    
-    addPermission(permission) {
-        this.permissions |= permission;
-        return this;
-    }
-    
-    removePermission(permission) {
-        this.permissions &= ~permission;
-        return this;
-    }
-    
-    togglePermission(permission) {
-        this.permissions ^= permission;
-        return this;
-    }
-    
-    listPermissions() {
-        return Object.entries(PermissionSystem.PERMISSIONS)
-            .filter(([_, perm]) => this.hasPermission(perm))
-            .map(([name]) => name);
-    }
+  static PERMISSIONS = {
+    VIEW: 1 << 0,
+    CREATE: 1 << 1,
+    EDIT: 1 << 2,
+    DELETE: 1 << 3,
+    ADMIN: 1 << 4,
+  };
+
+  static ROLES = {
+    GUEST: PermissionSystem.PERMISSIONS.VIEW,
+    USER:
+      PermissionSystem.PERMISSIONS.VIEW |
+      PermissionSystem.PERMISSIONS.CREATE |
+      PermissionSystem.PERMISSIONS.EDIT,
+    MODERATOR:
+      PermissionSystem.PERMISSIONS.VIEW |
+      PermissionSystem.PERMISSIONS.CREATE |
+      PermissionSystem.PERMISSIONS.EDIT |
+      PermissionSystem.PERMISSIONS.DELETE,
+    ADMIN: 0b11111, // All permissions
+  };
+
+  constructor(userRole) {
+    this.permissions = userRole;
+  }
+
+  hasPermission(permission) {
+    return (this.permissions & permission) !== 0;
+  }
+
+  addPermission(permission) {
+    this.permissions |= permission;
+    return this;
+  }
+
+  removePermission(permission) {
+    this.permissions &= ~permission;
+    return this;
+  }
+
+  togglePermission(permission) {
+    this.permissions ^= permission;
+    return this;
+  }
+
+  listPermissions() {
+    return Object.entries(PermissionSystem.PERMISSIONS)
+      .filter(([_, perm]) => this.hasPermission(perm))
+      .map(([name]) => name);
+  }
 }
 
-const userPermissions = new PermissionSystem(PermissionSystem.ROLES.USER);
-console.log("User permissions:", userPermissions.listPermissions());
-console.log("Can delete?", userPermissions.hasPermission(PermissionSystem.PERMISSIONS.DELETE));
+const userPerms = new PermissionSystem(PermissionSystem.ROLES.USER);
+console.log("User permissions:", userPerms.listPermissions());
+console.log("Can delete?", userPerms.hasPermission(PermissionSystem.PERMISSIONS.DELETE));
 
-userPermissions.addPermission(PermissionSystem.PERMISSIONS.DELETE);
-console.log("After adding DELETE:", userPermissions.listPermissions());
+userPerms.addPermission(PermissionSystem.PERMISSIONS.DELETE);
+console.log("After adding DELETE:", userPerms.listPermissions());
 
 // 5. Data Transformation Pipeline
 console.log("\n🔹 Data Transformation Pipeline:");
 function createDataPipeline(data) {
-    return {
-        data,
-        
-        filter(predicate) {
-            this.data = this.data.filter(predicate);
-            return this;
-        },
-        
-        map(transform) {
-            this.data = this.data.map(transform);
-            return this;
-        },
-        
-        sort(comparator) {
-            this.data.sort(comparator);
-            return this;
-        },
-        
-        reduce(reducer, initialValue) {
-            return this.data.reduce(reducer, initialValue);
-        },
-        
-        get() {
-            return this.data;
-        }
-    };
+  return {
+    data,
+
+    filter(predicate) {
+      this.data = this.data.filter(predicate);
+      return this;
+    },
+
+    map(transform) {
+      this.data = this.data.map(transform);
+      return this;
+    },
+
+    sort(comparator) {
+      this.data.sort(comparator);
+      return this;
+    },
+
+    reduce(reducer, initialValue) {
+      return this.data.reduce(reducer, initialValue);
+    },
+
+    get() {
+      return this.data;
+    },
+  };
 }
 
 const numbersData = [5, 2, 8, 1, 9, 3, 7, 4, 6, 10];
 
-const result = createDataPipeline(numbersData)
-    .filter(n => n % 2 === 0)           // Keep even numbers
-    .map(n => n * 2)                    // Double them
-    .sort((a, b) => b - a)              // Sort descending
-    .get();
+const pipelineResult = createDataPipeline(numbersData)
+  .filter((n) => n % 2 === 0) // Keep even numbers
+  .map((n) => n * 2) // Double them
+  .sort((a, b) => b - a) // Sort descending
+  .get();
 
-console.log("Pipeline result:", result);
+console.log("Pipeline result:", pipelineResult);
 
 // ==========================
 // 9. COMMON PITFALLS & SOLUTIONS
@@ -898,14 +914,14 @@ console.log(`Math.abs(0.1 + 0.2 - 0.3) < 0.000001 = ${Math.abs(0.1 + 0.2 - 0.3) 
 // Pitfall 2: Type Coercion Surprises
 console.log("\n🔹 Pitfall 2: Type Coercion Surprises");
 console.log(`[] + [] = "${[] + []}"`);
-console.log(`[] + {} = "${[] + {}"`);
+console.log(`[] + {} = "${[] + {}}"`);
 console.log(`{} + [] = ${{} + []}`);
 console.log(`Solution: Be explicit with types:`);
 console.log(`String([]) + String([]) = "${String([]) + String([])}"`);
 console.log(`Number([]) + Number([]) = ${Number([]) + Number([])}`);
 
 // Pitfall 3: Assignment vs Comparison
-console.log("\n🔹 Pitfall 3: Assignment (=) vs Comparison (==/===)");
+console.log("\n🔹 Pitfall 3: Assignment (=) vs Comparison (==/===)`);
 let value = 5;
 console.log(`if (value = 10) { ... } // Sets value to 10, always true!`);
 console.log(`Solution: Always use === for comparison:`);
@@ -948,26 +964,26 @@ console.log("\n\n10. BEST PRACTICES SUMMARY");
 console.log("==========================\n");
 
 const bestPractices = [
-    "✅ Always use === and !== instead of == and !=",
-    "✅ Use parentheses to make precedence clear",
-    "✅ Use const by default, let only when reassignment is needed",
-    "✅ Use modern operators: ?? for null/undefined, ?. for optional chaining",
-    "✅ Break complex expressions into multiple lines",
-    "✅ Avoid side effects in expressions",
-    "✅ Use descriptive variable names",
-    "✅ Handle floating point precision issues",
-    "✅ Use Number.isNaN() instead of isNaN() for strict checking",
-    "✅ Use bitwise operators only when necessary and document why",
-    "✅ Prefer template literals over string concatenation",
-    "✅ Use destructuring for cleaner code",
-    "✅ Understand short-circuit evaluation implications",
-    "✅ Validate input types before operations",
-    "✅ Use the appropriate operator for the job"
+  "✅ Always use === and !== instead of == and !=",
+  "✅ Use parentheses to make precedence clear",
+  "✅ Use const by default, let only when reassignment is needed",
+  "✅ Use modern operators: ?? for null/undefined, ?. for optional chaining",
+  "✅ Break complex expressions into multiple lines",
+  "✅ Avoid side effects in expressions",
+  "✅ Use descriptive variable names",
+  "✅ Handle floating point precision issues",
+  "✅ Use Number.isNaN() instead of isNaN() for strict checking",
+  "✅ Use bitwise operators only when necessary and document why",
+  "✅ Prefer template literals over string concatenation",
+  "✅ Use destructuring for cleaner code",
+  "✅ Understand short-circuit evaluation implications",
+  "✅ Validate input types before operations",
+  "✅ Use the appropriate operator for the job",
 ];
 
 console.log("JavaScript Operators Best Practices:");
 bestPractices.forEach((practice, index) => {
-    console.log(`${index + 1}. ${practice}`);
+  console.log(`${index + 1}. ${practice}`);
 });
 
 console.log("\n" + "=".repeat(60));
